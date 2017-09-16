@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+
+
+---
+spring:
+  profiles: dev
+# eureka 配置
+eureka:
+  instance:
+    hostname: eureka-service
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+
+
+---
+spring:
+  profiles: docker
+# eureka 配置
+eureka:
+  instance:
+    hostname: eureka-service
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${DOCKER_IP:192.168.99.100}:${server.port}/eureka/

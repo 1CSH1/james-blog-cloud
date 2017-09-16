@@ -1,0 +1,153 @@
+# mysql
+mysql:
+  image: mysql:5.7
+  environment:
+   - MYSQL_ROOT_PASSWORD=jamesblog
+   - MYSQL_DATABASE=dev
+  ports:
+   - 3001:3001
+
+# neo4j
+neo4j:
+  image: neo4j:2.3
+  environment:
+   - NEO4J_AUTH=none
+  ports:
+   - 3002:3002
+
+# redis
+redis:
+  image: redis:3.0
+  ports:
+   - 3003:3003
+
+# mongo
+mongo:
+  image: mongo:3.3
+  ports:
+   - 3004:3004
+
+# config-service
+config-service:
+  image: jamescsh/config-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6001:6001
+
+# eureka-service
+eureka-service:
+  image: jamescsh/eureka-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6002:6002
+
+# hystrix-dashboard
+hystrix-dashboard:
+  image: jamescsh/hystrix-dashboard
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6003:6003
+
+# account-service
+account-service:
+  image: jamescsh/account-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6004:6004
+  links:
+   - eureka-service
+   - config-service
+   - mysql
+
+# article-service
+article-service:
+  image: jamescsh/article-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6006:6006
+  links:
+   - eureka-service
+   - config-service
+   - mysql
+
+# comment-service
+comment-service:
+  image: jamescsh/comment-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6007:6007
+  links:
+   - eureka-service
+   - config-service
+   - mysql
+
+# tag-service
+tag-service:
+  image: jamescsh/tag-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6008:6008
+  links:
+   - eureka-service
+   - config-service
+   - mysql
+
+# user-service
+user-service:
+  image: jamescsh/user-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6009:6009
+  links:
+   - eureka-service
+   - config-service
+   - account-service
+
+# admin-service
+admin-service:
+  image: jamescsh/admin-service
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6005:6005
+  links:
+   - eureka-service
+   - config-service
+   - article-service
+   - comment-service
+   - tag-service
+   - account-service
+
+# james-blog-web
+james-blog-web:
+  image: jamescsh/james-blog-web
+  environment:
+   - SPRING_PROFILES_ACTIVE = docker
+   - DOCKER_IP = $DOCKER_IP
+  ports:
+   - 6010:6010
+  links:
+   - eureka-service
+   - config-service
+   - admin-service
+   - user-service
+
+
+

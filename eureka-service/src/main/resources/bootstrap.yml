@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: eureka-service
+# 默认启动的配置类型
+  profiles:
+    active: dev
+
+---
+# dev 配置
+spring:
+  profiles: dev
+# 配置服务路径
+  cloud:
+    config:
+      uri: http://localhost:5001
+# 服务端口
+server:
+  port: 5002
+
+---
+# docker 配置
+spring:
+  profiles: docker
+# 配置服务路径
+  cloud:
+    config:
+      uri: http://${DOCKER_IP:192.168.99.100}:6001
+# 服务端口
+server:
+  port: 6002
