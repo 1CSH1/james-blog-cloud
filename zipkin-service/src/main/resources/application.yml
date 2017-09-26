@@ -1,0 +1,70 @@
+spring:
+  profiles:
+    active: dev
+
+
+############################ dev ##############################
+---
+spring:
+  profiles: dev
+#  sleuth:
+#    enabled: false
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/jamesblog
+#    username: root
+#    password: root
+#    initialize: true
+#    continue-on-error: true
+#  rabbitmq:
+#    host: 192.168.31.20
+#    port: 5672
+#    virtual-host: james-blog
+#    username: james-blog
+#    password: james-blog
+
+
+# eureka 配置
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://192.168.31.20:5002/eureka/
+
+# zipkin 配置
+#zipkin:
+#  storage:
+#    type: mysql # mem or mysql
+
+
+############################ docker ##############################
+---
+spring:
+  profiles: docker
+#  sleuth:
+#    enabled: false
+#  datasource:
+#    url: jdbc:mysql://mysql:3001/zipkin
+#    username: zipkin
+#    password: zipkin
+#    initialize: true
+#    continue-on-error: true
+#  rabbitmq:
+#    host: rabbitmq
+#    port: 3005
+#    virtual-host: /
+#    username: rabbitmq
+#    password: rabbitmq
+#
+# eureka 配置
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka-service:6002/eureka/
+
+# zipkin 配置
+#zipkin:
+#  storage:
+#    type: mysql # mem or mysql

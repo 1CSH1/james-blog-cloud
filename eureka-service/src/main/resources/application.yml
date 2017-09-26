@@ -3,29 +3,39 @@ spring:
     active: dev
 
 
+############################ dev ##############################
 ---
 spring:
   profiles: dev
+  cloud:
+    config:
+      discovery:
+        enabled: true
 # eureka 配置
 eureka:
   instance:
-    hostname: eureka-service
+    prefer-ip-address: true
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://192.168.31.20:${server.port}/eureka/
 
 
+############################ docker ##############################
 ---
 spring:
   profiles: docker
+  cloud:
+    config:
+      discovery:
+        enabled: true
 # eureka 配置
 eureka:
   instance:
-    hostname: eureka-service
+    prefer-ip-address: true
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      defaultZone: http://${DOCKER_IP:192.168.99.100}:${server.port}/eureka/
+      defaultZone: http://eureka-service:${server.port}/eureka/

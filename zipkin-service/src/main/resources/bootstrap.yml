@@ -1,6 +1,6 @@
 spring:
   application:
-    name: eureka-service
+    name: zipkin-service
 # 默认启动的配置类型
   profiles:
     active: dev
@@ -16,7 +16,8 @@ spring:
       uri: http://localhost:5001
 # 服务端口
 server:
-  port: 5002
+  port: 5004
+
 
 ############################ docker ##############################
 ---
@@ -29,4 +30,4 @@ spring:
       uri: http://config-service:6001
 # 服务端口
 server:
-  port: 6002
+  port: 6004

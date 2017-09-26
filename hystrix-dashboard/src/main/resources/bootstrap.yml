@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: hystrix-dashboard
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      uri: http://localhost:5001
+server:
+  port: 5003
+
+
+---
+spring:
+  profiles: docker
+  cloud:
+    config:
+      uri: http://${DOCKER_IP:192.168.99.100}:6001
+server:
+  port: 6003

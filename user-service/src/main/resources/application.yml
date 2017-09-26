@@ -1,0 +1,13 @@
+spring:
+  zipkin:
+    base-url: http://zipkin-service:6004
+  sleuth:
+   sampler:
+     percentage: 1.0
+  rabbitmq:
+    host:
+    port:
+    virtual-host:
+    username:
+    password:
+
