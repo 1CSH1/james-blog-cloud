@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: admin-service
+# 默认启动的配置类型
+  profiles:
+    active: dev
+
+############################ dev ##############################
+---
+# dev 配置
+spring:
+  profiles: dev
+# 配置服务路径
+  cloud:
+    config:
+      uri: http://localhost:5001
+# 服务端口
+server:
+  port: 5026
+
+############################ docker ##############################
+---
+# docker 配置
+spring:
+  profiles: docker
+# 配置服务路径
+  cloud:
+    config:
+      uri: http://config-service:6001
+# 服务端口
+server:
+  port: 6026

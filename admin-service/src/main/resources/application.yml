@@ -1,0 +1,97 @@
+spring:
+  profiles:
+    active: dev
+
+
+############################ dev ##############################
+---
+spring:
+  profiles: dev
+
+# Eureka 配置
+eureka:
+  instance:
+    prefer-ip-address: true
+    non-secure-port: ${server.port}
+  client:
+    service-url:
+      defaultZone: http://192.168.31.20:5002/eureka/
+
+# Zuul 配置
+zuul:
+  ignored-services: '*'
+  routes:
+    account-service:
+      path: /account/**
+      serviceId: account-service
+    article-service:
+      path: /article/**
+      serviceId: article-service
+    comment-service:
+      path: /comment/**
+      serviceId: comment-service
+    tag-service:
+      path: /tag/**
+      serviceId: tag-service
+    user-service:
+      path: /user/**
+      serviceId: user-service
+
+# Spring Security 配置
+security:
+  enable-csrf: false
+  oauth2:
+    resource:
+      user-info-uri: http://192.168.31.20:5025/uaa/user
+    client:
+      access-token-uri: http://192.168.31.20:5025/uaa/oauth/token
+      user-authorization-uri: http://192.168.31.20:5025/uaa/oauth/authorize
+      client-id: jamesblog
+      client-secret: jamesblog
+  ignored: /assets/**
+
+############################ docker ##############################
+---
+spring:
+  profiles: docker
+
+# Eureka 配置
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka-service:6002/eureka/
+
+# Zuul 配置
+zuul:
+  ignored-services: '*'
+  routes:
+    account-service:
+      path: /account/**
+      serviceId: account-service
+    article-service:
+      path: /article/**
+      serviceId: article-service
+    comment-service:
+      path: /comment/**
+      serviceId: comment-service
+    tag-service:
+      path: /tag/**
+      serviceId: tag-service
+    user-service:
+      path: /user/**
+      serviceId: user-service
+
+# Spring Security 配置
+security:
+  enable-csrf: false
+  oauth2:
+    resource:
+      user-info-uri: http://${DOCKER_IP:192.168.99.100}:6025/uaa/user
+    client:
+      access-token-uri: http://${DOCKER_IP:192.168.99.100}:6025/uaa/oauth/token
+      user-authorization-uri: http://${DOCKER_IP:192.168.99.100}:6025/uaa/oauth/authorize
+      client-id: jamesblog
+      client-secret: jamesblog
+  ignored: /assets/**
