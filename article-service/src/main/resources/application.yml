@@ -1,0 +1,77 @@
+spring:
+  profiles:
+    active: dev
+
+############################ dev ##############################
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://JamesBlog:3306/dev
+    username: root
+    password: root
+    initialize: true
+    # Druid 数据源配置
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+# Eureka 注册中心
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://JamesBlog:5002/eureka/
+
+# Mybatis 分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    root: debug
+
+
+# Security 配置
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://JamesBlog:5025/uaa/user
+#    client:
+#      access-token-uri: http://JamesBlog:5025
+#      client-id: jamesblog
+
+
+############################ docker ##############################
+---
+spring:
+  profiles: docker
+  datasource:
+    url: jdbc:mysql://mysql:3001/dev
+    username: root
+    password: root
+    initialize: true
+    # Druid 数据源配置
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+# Eureka 注册中心
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka-service:6002/eureka/
+
+# Security 配置
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://${DOCKER_IP:192.168.99.100}:6025/uaa/user
+    client:
+      access-token-uri: http://${DOCKER_IP:192.168.99.100}:6025/uaa/oauth/token
+      client-id: jamesblog

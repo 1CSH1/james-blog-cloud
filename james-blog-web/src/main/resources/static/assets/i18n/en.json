@@ -1,0 +1,64 @@
+{
+  "app": {
+    "homeBlog": "James Blog",
+    "homePage": "Home",
+    "categories": "Categories",
+    "tags": "Tags",
+    "about": "About",
+    "menu": "Menu"
+  },
+
+  "home": {
+    "siteHeading": "James Blog",
+    "subHeading": "Home",
+    "newer": "Newer Posts",
+    "older": "Older Posts",
+    "postedOn": "Posted on",
+    "readTimes": "Read times",
+    "commentTimes": "Comment times",
+    "isTop": "Top"
+  },
+
+  "detail": {
+    "postedOn": "Posted on",
+    "categoriedIn": "Categoried in",
+    "readTimes": "Read times",
+    "commentTimes": "Comment times"
+  },
+
+  "comment": {
+    "leaveComment": "Leave a Comment",
+    "reply": "Reply",
+    "email": "Email Address",
+    "nickname": "NickName",
+    "content": "Content",
+    "submit": "Submit"
+  },
+
+  "categories" : {
+    "subHeading": "Categories",
+    "title" : {
+      "prefix": "Currently, there are ",
+      "suffix": "categories"
+    },
+    "category": {
+      "title" : "Category"
+    }
+  },
+
+  "tags" : {
+    "subHeading": "Tags",
+    "title" : {
+      "prefix": "Currently, there are ",
+      "suffix": "tags"
+    },
+    "tag": {
+      "title" : "Tag"
+    }
+  },
+
+  "about": {
+    "subHeading": "About Me"
+  }
+
+}

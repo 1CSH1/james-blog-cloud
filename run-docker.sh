@@ -3,7 +3,7 @@
 set -e
 
 # maven clean and install
-mvn clean install
+#mvn clean install
 
 # export docker机器的IP
 export DOCKER_IP=$(docker-machine ip)
@@ -16,7 +16,7 @@ docker-compose stop
 docker-compose rm -f
 
 # 启动 rabbitmq
-docker-compose up -d rabbitmq
+#docker-compose up -d rabbitmq
 
 # 启动 config-service
 docker-compose up -d config-service
@@ -50,7 +50,7 @@ docker-compose up -d zipkin-service
 
 
 # 启动其他服务
-# docker-compose up -d
+ docker-compose up -d
 
 # 将日志输出到光标
 docker-compose logs

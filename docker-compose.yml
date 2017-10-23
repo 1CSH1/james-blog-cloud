@@ -28,16 +28,16 @@ mongo:
    - 3004:3004
 
 # rabbitmq
-rabbitmq:
-  image: rabbitmq:3.6-management
-  environment:
-    RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
-    RABBITMQ_DEFAULT_USER: "rabbitmq"
-    RABBITMQ_DEFAULT_PASS: "rabbitmq"
-    RABBITMQ_DEFAULT_VHOST: "/"
-  ports:
-   - 13005:13005
-   - 3005:3005
+#rabbitmq:
+#  image: rabbitmq:3.6-management
+#  environment:
+#    RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+#    RABBITMQ_DEFAULT_USER: "rabbitmq"
+#    RABBITMQ_DEFAULT_PASS: "rabbitmq"
+#    RABBITMQ_DEFAULT_VHOST: "/"
+#  ports:
+#   - 13005:13005
+#   - 3005:3005
 
 # config-service
 config-service:
@@ -82,7 +82,6 @@ zipkin-service:
   links:
    - eureka-service
    - config-service
-   - rabbitmq
 
 # account-service
 account-service:
@@ -149,6 +148,20 @@ user-service:
    - config-service
    - account-service
 
+# category-service
+category-service:
+  image: jamescsh/category-service
+  environment:
+    SPRING_PROFILES_ACTIVE: "docker"
+    DOCKER_IP: $DOCKER_IP
+  ports:
+   - 6028:6028
+  links:
+   - eureka-service
+   - config-service
+   - mysql
+
+
 # admin-service
 admin-service:
   image: jamescsh/admin-service
@@ -176,8 +189,11 @@ james-blog-web:
   links:
    - eureka-service
    - config-service
-   - admin-service
-   - user-service
+   - article-service
+   - category-service
+   - tag-service
+   - comment-service
+   - account-service
 
 
 

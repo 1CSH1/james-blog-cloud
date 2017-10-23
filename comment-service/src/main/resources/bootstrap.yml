@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: comment-service
+  profiles:
+    active: dev
+
+
+############################ dev ##############################
+---
+spring:
+  profiles: dev
+  cloud:
+    config:
+      uri: http://localhost:5001
+server:
+  port: 5023
+
+
+############################ docker ##############################
+---
+spring:
+  profiles: docker
+  cloud:
+    config:
+      uri: http://${DOCKER_IP:192.168.99.100}:6001
+server:
+  port: 6023

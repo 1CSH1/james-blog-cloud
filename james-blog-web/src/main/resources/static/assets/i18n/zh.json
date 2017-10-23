@@ -1,0 +1,64 @@
+{
+  "app": {
+    "homeBlog": "James Blog",
+    "homePage": "首页",
+    "categories": "分类",
+    "tags": "标签",
+    "about": "关于",
+    "menu": "目录"
+  },
+
+  "home": {
+    "siteHeading": "James Blog",
+    "subHeading": "首页",
+    "newer": "上一页",
+    "older": "下一页",
+    "postedOn": "发表于",
+    "readTimes": "阅读数",
+    "commentTimes": "评论数",
+    "isTop": "置顶"
+  },
+
+  "detail": {
+    "postedOn": "发表于",
+    "categoriedIn": "分类于",
+    "readTimes": "阅读数",
+    "commentTimes": "评论数"
+  },
+
+  "comment": {
+    "leaveComment": "发表评论",
+    "reply": "引用",
+    "email": "邮箱",
+    "nickname": "昵称",
+    "content": "内容",
+    "submit": "提交"
+  },
+
+  "categories" : {
+    "subHeading": "分类",
+    "title" : {
+      "prefix": "目前共计",
+      "suffix": "个分类"
+    },
+    "category": {
+      "title" : "分类"
+    }
+  },
+
+  "tags" : {
+    "subHeading": "标签",
+    "title" : {
+      "prefix": "目前共计",
+      "suffix": "个标签"
+    },
+    "tag": {
+      "title" : "标签"
+    }
+  },
+
+  "about": {
+    "subHeading": "关于我"
+  }
+
+}

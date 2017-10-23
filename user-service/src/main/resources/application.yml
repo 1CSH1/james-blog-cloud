@@ -1,13 +1,80 @@
 spring:
-  zipkin:
-    base-url: http://zipkin-service:6004
-  sleuth:
-   sampler:
-     percentage: 1.0
-  rabbitmq:
-    host:
-    port:
-    virtual-host:
-    username:
-    password:
+  profiles:
+    active: dev
+
+############################ dev ##############################
+---
+spring:
+  profiles: dev
+  datasource:
+      url: jdbc:mysql://JamesBlog:3306/dev
+      username: root
+      password: root
+      initialize: true
+
+#server:
+#  context-path: /uaa
+
+security:
+  user:
+    password: password
+  ignored: /resources/**
+  enable-csrf: false
+
+logging.level.org.springframework.security: DEBUG
+
+# Eureka 注册中心
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://JamesBlog:5002/eureka/
+
+
+############################ docker ##############################
+---
+spring:
+  profiles: docker
+  datasource:
+      url: jdbc:mysql://mysql:3001/dev
+      username: root
+      password: root
+      initialize: true
+
+server:
+  context-path: /uaa
+
+security:
+  user:
+    password: password
+  ignored: /resources/**
+  enable-csrf: false
+
+logging.level.org.springframework.security: DEBUG
+
+# Eureka 注册中心
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka-service:6002/eureka/
+
+
+
+
+
+#spring:
+#  zipkin:
+#    base-url: http://zipkin-service:6004
+#  sleuth:
+#   sampler:
+#     percentage: 1.0
+#  rabbitmq:
+#    host:
+#    port:
+#    virtual-host:
+#    username:
+#    password:
 

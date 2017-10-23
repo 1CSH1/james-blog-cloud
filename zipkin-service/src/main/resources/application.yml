@@ -29,7 +29,7 @@ eureka:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://192.168.31.20:5002/eureka/
+      defaultZone: http://JamesBlog:5002/eureka/
 
 # zipkin 配置
 #zipkin:

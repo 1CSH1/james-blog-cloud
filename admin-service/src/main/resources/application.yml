@@ -15,7 +15,7 @@ eureka:
     non-secure-port: ${server.port}
   client:
     service-url:
-      defaultZone: http://192.168.31.20:5002/eureka/
+      defaultZone: http://JamesBlog:5002/eureka/
 
 # Zuul 配置
 zuul:
@@ -26,6 +26,9 @@ zuul:
       serviceId: account-service
     article-service:
       path: /article/**
+      serviceId: article-service
+    category-service:
+      path: /category/**
       serviceId: article-service
     comment-service:
       path: /comment/**
@@ -42,13 +45,14 @@ security:
   enable-csrf: false
   oauth2:
     resource:
-      user-info-uri: http://192.168.31.20:5025/uaa/user
+      user-info-uri: http://JamesBlog:5025/uaa/user
     client:
-      access-token-uri: http://192.168.31.20:5025/uaa/oauth/token
-      user-authorization-uri: http://192.168.31.20:5025/uaa/oauth/authorize
+      access-token-uri: http://JamesBlog:5025/uaa/oauth/token
+      user-authorization-uri: http://JamesBlog:5025/uaa/oauth/authorize
       client-id: jamesblog
       client-secret: jamesblog
   ignored: /assets/**
+
 
 ############################ docker ##############################
 ---
@@ -72,6 +76,9 @@ zuul:
       serviceId: account-service
     article-service:
       path: /article/**
+      serviceId: article-service
+    category-service:
+      path: /category/**
       serviceId: article-service
     comment-service:
       path: /comment/**
