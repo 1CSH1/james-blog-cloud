@@ -1,11 +1,12 @@
 package org.jamesblog.article.model;
 
-/**
- * Created by jamescsh on 10/14/17.
- */
+import org.jamesblog.article.model.BaseModel;
+
 
 /**
  * 评论
+ *
+ * Created by jamescsh on 10/14/17.
  */
 public class Comment extends BaseModel {
     private long id;
@@ -13,7 +14,8 @@ public class Comment extends BaseModel {
     private String content;
     private String email;
     private int status;
-    private Comment pComment;
+    private int pId;
+    private String path;
 
     public Comment() {
     }
@@ -23,15 +25,15 @@ public class Comment extends BaseModel {
         this.content = content;
         this.email = email;
         this.status = status;
-        this.pComment = new Comment();
     }
 
-    public Comment(String name, String content, String email, int status, Comment pComment) {
+    public Comment(String name, String content, String email, int status, int pId, String path) {
         this.name = name;
         this.content = content;
         this.email = email;
         this.status = status;
-        this.pComment = pComment;
+        this.pId = pId;
+        this.path = path;
     }
 
     public long getId() {
@@ -74,12 +76,20 @@ public class Comment extends BaseModel {
         this.status = status;
     }
 
-    public Comment getpComment() {
-        return pComment;
+    public int getpId() {
+        return pId;
     }
 
-    public void setpComment(Comment pComment) {
-        this.pComment = pComment;
+    public void setpId(int pId) {
+        this.pId = pId;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     @Override
@@ -90,7 +100,8 @@ public class Comment extends BaseModel {
                 ", content='" + content + '\'' +
                 ", email='" + email + '\'' +
                 ", status=" + status +
-                ", pComment=" + pComment +
+                ", pId=" + pId +
+                ", path=" + path +
                 "}, " + super.toString();
     }
 }

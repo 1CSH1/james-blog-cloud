@@ -8,6 +8,10 @@ spring:
 spring:
   profiles: dev
 
+
+  mvc:
+    dispatch-options-request: true
+
 # Eureka 配置
 eureka:
   instance:

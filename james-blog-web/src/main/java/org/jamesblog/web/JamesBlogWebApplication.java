@@ -19,12 +19,12 @@ public class JamesBlogWebApplication {
     public static void main(String[] args) {
         SpringApplication.run(JamesBlogWebApplication.class, args);
     }
-/*    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("*//**")
-                .authorizeRequests()
-                .antMatchers("/index.html", "/login", "/", "/api/catalog*//**", "/user", "assets*//**")
-                .permitAll()
-                .anyRequest().authenticated().and().csrf().disable();
-    }*/
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.antMatcher("*//**")
+//                .authorizeRequests()
+//                .antMatchers("/index.html", "/login", "/", "/api/catalog*//**", "/user", "assets*//**")
+//                .permitAll()
+//                .anyRequest().authenticated().and().csrf().disable();
+//    }
 }

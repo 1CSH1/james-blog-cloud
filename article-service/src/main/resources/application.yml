@@ -10,7 +10,7 @@ spring:
     url: jdbc:mysql://JamesBlog:3306/dev
     username: root
     password: root
-    initialize: true
+    initialize: false
     # Druid 数据源配置
 #    type: com.alibaba.druid.pool.DruidDataSource
 
@@ -29,12 +29,14 @@ pagehelper:
   support-methods-arguments: true
   params: count=countSql
 
+# 设置 Mybatis 自动将对象属性转为 MySQL 中的 下横线的字段
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-logging:
-  level:
-    root: debug
+
+#logging:
+#  level:
+#    root: debug
 
 
 # Security 配置

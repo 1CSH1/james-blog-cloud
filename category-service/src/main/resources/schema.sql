@@ -7,7 +7,7 @@ CREATE TABLE category
   name              VARCHAR(255) NOT NULL ,
   created_time      BIGINT(40) NOT NULL ,
   modified_time     BIGINT(40) NOT NULL
-);
+) CHARSET = UTF8;
 
 -- 文章和分类关系表
 DROP TABLE IF EXISTS article_category_rel;
@@ -18,4 +18,4 @@ CREATE TABLE article_category_rel
   article_id        BIGINT(20) NOT NULL,
   created_time      BIGINT(40) NOT NULL,
   modified_time     BIGINT(40) NOT NULL
-)
+) CHARSET = UTF8;

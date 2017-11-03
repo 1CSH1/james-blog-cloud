@@ -20,14 +20,27 @@ eureka:
     service-url:
       defaultZone: http://JamesBlog:5002/eureka/
 
+# Mybatis 分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+# 设置 Mybatis 自动将对象属性转为 MySQL 中的 下横线的字段
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
 # Security 配置
-security:
-  oauth2:
-    resource:
-      user-info-uri: http://JamesBlog:5025/uaa/user
-    client:
-      access-token-uri: http://JamesBlog:5025
-      client-id: jamesblog
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://JamesBlog:5025/uaa/user
+#    client:
+#      access-token-uri: http://JamesBlog:5025
+#      client-id: jamesblog
 
 
 ############################ docker ##############################

@@ -62,7 +62,7 @@ var AboutComponent = (function () {
     return AboutComponent;
 }());
 AboutComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'about',
         template: __webpack_require__("../../../../../src/app/article/about/about.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/about/about.component.css")]

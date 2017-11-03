@@ -4,6 +4,8 @@ package org.jamesblog.article.model;
  * Created by jamescsh on 10/14/17.
  */
 
+import org.jamesblog.article.model.BaseModel;
+
 /**
  * 标签
  */

@@ -5,7 +5,7 @@ CREATE TABLE tag
   name          VARCHAR(255) NOT NULL ,
   created_time      BIGINT(40) NOT NULL ,
   modified_time     BIGINT(40) NOT NULL
-);
+) CHARSET = UTF8;
 
 DROP TABLE IF EXISTS article_tag_rel;
 CREATE TABLE article_tag_rel
@@ -15,4 +15,4 @@ CREATE TABLE article_tag_rel
   tag_id        BIGINT(20) NOT NULL ,
   created_time      BIGINT(40) NOT NULL ,
   modified_time     BIGINT(40) NOT NULL
-);
+) CHARSET = UTF8;

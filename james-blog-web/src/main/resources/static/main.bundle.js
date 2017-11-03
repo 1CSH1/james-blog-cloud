@@ -96,7 +96,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -227,6 +227,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__comment_comment_service__ = __webpack_require__("../../../../../src/app/article/comment/comment.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__comment_view_comment_view_component__ = __webpack_require__("../../../../../src/app/article/comment/view/comment-view.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__common_http_http_service__ = __webpack_require__("../../../../../src/app/article/common/http/http.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ArticleModule", function() { return ArticleModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -234,6 +235,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -270,7 +272,8 @@ ArticleModule = __decorate([
         providers: [
             __WEBPACK_IMPORTED_MODULE_6__home_home_service__["a" /* HomeService */],
             __WEBPACK_IMPORTED_MODULE_8__detail_detail_service__["a" /* DetailService */],
-            __WEBPACK_IMPORTED_MODULE_10__comment_comment_service__["a" /* CommentService */]
+            __WEBPACK_IMPORTED_MODULE_10__comment_comment_service__["a" /* CommentService */],
+            __WEBPACK_IMPORTED_MODULE_13__common_http_http_service__["a" /* HttpService */]
         ]
     })
 ], ArticleModule);
@@ -480,7 +483,7 @@ __decorate([
     __metadata("design:type", Array)
 ], CommentComponent.prototype, "comments", void 0);
 CommentComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'comment',
         template: __webpack_require__("../../../../../src/app/article/comment/comment.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/comment/comment.component.css")]
@@ -613,11 +616,11 @@ __decorate([
     __metadata("design:type", Array)
 ], CommentViewComponent.prototype, "comments", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_0" /* Output */])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* EventEmitter */]) === "function" && _a || Object)
 ], CommentViewComponent.prototype, "contentEvent", void 0);
 CommentViewComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'comment-view',
         template: __webpack_require__("../../../../../src/app/article/comment/view/comment-view.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/comment/view/comment-view.component.css")]
@@ -627,6 +630,97 @@ CommentViewComponent = __decorate([
 
 var _a, _b, _c;
 //# sourceMappingURL=comment-view.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/article/common/http/http.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var HttpService = (function () {
+    function HttpService(http) {
+        this.http = http;
+        this.baseUrl = "http://localhost:5027";
+    }
+    /**
+     * 发送 GET 请求
+     * @param serviceName     服务名字
+     * @param path            请求路径
+     * @param params
+     * @param headers         报文头
+     * @returns {Observable<R|T>}
+     */
+    HttpService.prototype.doGet = function (serviceName, path, params, headers) {
+        var theHeaders = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        // theHeaders.append("Content-Type", "application/json; charset=utf-8");
+        for (var header in headers) {
+            theHeaders.append(header, headers[header]);
+        }
+        var url = this.baseUrl + "/" + serviceName + "/" + path + "?" + this.param(params);
+        return this.http
+            .get(url, { headers: theHeaders })
+            .map(function (response) { return response.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error || "Server error"); });
+    };
+    /**
+     * 发送 Post 请求
+     * @param serviceName   服务名字
+     * @param path          请求路径
+     * @param params        请求报文
+     * @param headers       报文头
+     * @returns {Observable<R|T>}
+     */
+    HttpService.prototype.doPost = function (serviceName, path, params, headers) {
+        var theHeaders = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]();
+        theHeaders.append("Content-Type", "application/json");
+        for (var header in headers) {
+            theHeaders.append(header, headers[header]);
+        }
+        var url = this.baseUrl + "/" + serviceName + "/" + path;
+        return this.http
+            .post(url, params, { headers: theHeaders })
+            .map(function (response) { return response.json(); })
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error || "Server error"); });
+    };
+    /**
+     * Get 方法解析参数
+     * @param options
+     * @returns {string}
+     */
+    HttpService.prototype.param = function (options) {
+        var params = "";
+        for (var k in options) {
+            var value = options[k] !== undefined ? options[k] : "";
+            params += "&" + k + "=" + encodeURIComponent(value);
+        }
+        return params ? params.substring(1) : "";
+    };
+    return HttpService;
+}());
+HttpService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], HttpService);
+
+var _a;
+//# sourceMappingURL=http.service.js.map
 
 /***/ }),
 
@@ -709,7 +803,7 @@ var DetailComponent = (function () {
     return DetailComponent;
 }());
 DetailComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'detail',
         template: __webpack_require__("../../../../../src/app/article/detail/detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/detail/detail.component.css")]
@@ -795,7 +889,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/article/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Page Header -->\n<header class=\"masthead\" style=\"background-image: url('../../../assets/clean-blog/img/home-bg.jpg')\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 offset-lg-2 col-md-10 offset-md-1\">\n        <div class=\"site-heading\">\n          <h1>{{ 'home.siteHeading' | translate }}</h1>\n          <span class=\"subheading\">{{ 'home.subHeading' | translate }}</span>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n\n<!-- Main Content -->\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-8 offset-lg-2 col-md-10 offset-md-1\">\n      <div *ngFor=\"let article of articles\" class=\"post-preview\">\n        <!--<a [routerLink]=\"['/detail', article.id , '']\">-->\n        <a [routerLink]=\"['/2017/07/20/', article.title]\">\n          <h2 class=\"post-title\">\n            {{ article.title }}\n          </h2>\n          <h3 class=\"post-subtitle\">\n            {{ article.subtitle }}\n          </h3>\n        </a>\n        <p class=\"post-meta\">\n          {{ 'home.postedOn' | translate }}&nbsp;{{ article.time }}&nbsp;|&nbsp;\n          {{ 'home.readTimes' | translate }}:&nbsp;{{ article.readTimes }}&nbsp;|&nbsp;\n          {{ 'home.commentTimes' | translate}}:&nbsp;{{ article.commentTimes }}\n          <span *ngIf=\"article.isTop\">&nbsp;|&nbsp;{{ 'home.isTop' | translate }}</span>\n        </p>\n        <hr>\n      </div>\n\n      <!-- Pager -->\n      <div class=\"clearfix\">\n        <button (click)=\"changePage(page.pageNo - 1)\" *ngIf=\"!page.isFirst\" class=\"btn btn-secondary float-left\">&larr; {{ 'home.newer' | translate }}</button>\n        <button (click)=\"changePage(page.pageNo + 1)\" *ngIf=\"!page.isLast\" class=\"btn btn-secondary float-right\">{{ 'home.older' | translate }} &rarr;</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!-- Page Header -->\n<header class=\"masthead\" style=\"background-image: url('../../../assets/clean-blog/img/home-bg.jpg')\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-8 offset-lg-2 col-md-10 offset-md-1\">\n        <div class=\"site-heading\">\n          <h1>{{ 'home.siteHeading' | translate }}</h1>\n          <span class=\"subheading\">{{ 'home.subHeading' | translate }}</span>\n        </div>\n      </div>\n    </div>\n  </div>\n</header>\n\n<!-- Main Content -->\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-lg-8 offset-lg-2 col-md-10 offset-md-1\">\n      <div *ngFor=\"let article of articles\" class=\"post-preview\">\n        <!--<a [routerLink]=\"['/detail', article.id , '']\">-->\n        <a [routerLink]=\"['/2017/07/20/', article.title]\">\n          <h2 class=\"post-title\">\n            {{ article.title }}\n          </h2>\n          <h3 class=\"post-subtitle\">\n            {{ article.subtitle }}\n          </h3>\n        </a>\n        <p class=\"post-meta\">\n          {{ 'home.postedOn' | translate }}&nbsp;{{ article.time }}&nbsp;|&nbsp;\n          {{ 'home.readTimes' | translate }}:&nbsp;{{ article.readNumber }}&nbsp;|&nbsp;\n          {{ 'home.commentTimes' | translate}}:&nbsp;{{ article.readNumber }}\n          <span *ngIf=\"article.isTop\">&nbsp;|&nbsp;{{ 'home.isTop' | translate }}</span>\n        </p>\n        <hr>\n      </div>\n\n      <!-- Pager -->\n      <div class=\"clearfix\">\n        <button (click)=\"changePage(page.pageNo - 1)\" *ngIf=\"!page.isFirst\" class=\"btn btn-secondary float-left\">&larr; {{ 'home.newer' | translate }}</button>\n        <button (click)=\"changePage(page.pageNo + 1)\" *ngIf=\"!page.isLast\" class=\"btn btn-secondary float-right\">{{ 'home.older' | translate }} &rarr;</button>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -807,6 +901,7 @@ module.exports = "<!-- Page Header -->\n<header class=\"masthead\" style=\"backg
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_Page__ = __webpack_require__("../../../../../src/app/model/Page.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_service__ = __webpack_require__("../../../../../src/app/article/home/home.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_http_http_service__ = __webpack_require__("../../../../../src/app/article/common/http/http.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -821,9 +916,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomeComponent = (function () {
-    function HomeComponent(homeService, router, activatedRoute) {
+    function HomeComponent(homeService, httpService, router, activatedRoute) {
         this.homeService = homeService;
+        this.httpService = httpService;
         this.router = router;
         this.activatedRoute = activatedRoute;
         // 分页对象
@@ -844,9 +941,11 @@ var HomeComponent = (function () {
     };
     HomeComponent.prototype.getArticles = function () {
         var _this = this;
-        // 获取某一页的文章
-        this.homeService.getArticles(this.page.pageSize, this.page.pageNo).subscribe(function (response) {
-            _this.articles = response['data'];
+        this.httpService.doPost("article", "articles", {
+            "pageNo": this.page.pageNo,
+            "pageSize": this.page.pageSize
+        }).subscribe(function (response) {
+            _this.articles = response['articles'];
             _this.page.pageSize = response['pageSize'];
             _this.page.pageNo = response['pageNo'];
             _this.page.isFirst = response['isFirst'];
@@ -863,15 +962,15 @@ var HomeComponent = (function () {
     return HomeComponent;
 }());
 HomeComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'home',
         template: __webpack_require__("../../../../../src/app/article/home/home.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/home/home.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__home_service__["a" /* HomeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__home_service__["a" /* HomeService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__home_service__["a" /* HomeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__home_service__["a" /* HomeService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__common_http_http_service__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__common_http_http_service__["a" /* HttpService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _d || Object])
 ], HomeComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=home.component.js.map
 
 /***/ }),
@@ -912,24 +1011,18 @@ var HomeService = (function () {
         this.homeUrl1 = "assets/data/articles1.json";
         this.homeUrl2 = "assets/data/articles2.json";
         this.homeUrl3 = "assets/data/articles3.json";
+        this.homeUrl = "http://localhost:5022/articles";
     }
     // get the articles
     HomeService.prototype.getArticles = function (pageSize, pageNo) {
         var params = new URLSearchParams();
         params.set("pageNo", pageNo.toString());
         params.set("pageSize", pageSize.toString());
-        var homeUrl = "";
-        if (pageNo == 1) {
-            homeUrl = this.homeUrl1;
-        }
-        else if (pageNo == 2) {
-            homeUrl = this.homeUrl2;
-        }
-        else {
-            homeUrl = this.homeUrl3;
-        }
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Headers */]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var homeUrl = this.homeUrl;
         return this.http
-            .get(homeUrl, { search: params })
+            .post(homeUrl, { params: params }, options)
             .map(function (response) {
             var result = response.json();
             console.log(result);

@@ -91,7 +91,7 @@ var TagComponent = (function () {
     return TagComponent;
 }());
 TagComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'tag',
         template: __webpack_require__("../../../../../src/app/article/tags/tag/tag.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/tags/tag/tag.component.css")]
@@ -240,7 +240,7 @@ var TagsComponent = (function () {
     return TagsComponent;
 }());
 TagsComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'tags',
         template: __webpack_require__("../../../../../src/app/article/tags/tags.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/tags/tags.component.css")]

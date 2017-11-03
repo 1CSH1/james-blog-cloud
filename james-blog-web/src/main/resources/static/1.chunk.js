@@ -66,7 +66,7 @@ var CategoriesComponent = (function () {
     return CategoriesComponent;
 }());
 CategoriesComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'categories',
         template: __webpack_require__("../../../../../src/app/article/categories/categories.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/categories/categories.component.css")]
@@ -308,7 +308,7 @@ var CategoryComponent = (function () {
     return CategoryComponent;
 }());
 CategoryComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Component */])({
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Component */])({
         selector: 'category',
         template: __webpack_require__("../../../../../src/app/article/categories/category/category.component.html"),
         styles: [__webpack_require__("../../../../../src/app/article/categories/category/category.component.css")]

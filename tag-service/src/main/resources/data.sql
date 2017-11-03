@@ -1,0 +1,28 @@
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签1", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签2", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签3", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签4", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签5", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签6", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签7", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签8", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签9", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签10", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签11", 1508855785682, 1508855785682);
+INSERT INTO tag (name, created_time, modified_time) VALUES ("标签12", 1508855785682, 1508855785682);
+
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (1, 1, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (1, 2, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (1, 3, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (1, 4, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (2, 5, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (2, 6, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (2, 7, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (3, 8, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (3, 9, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (4, 10, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (4, 11, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (5, 7, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (6, 6, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (7, 4, 1508855785682, 1508855785682);
+INSERT INTO article_tag_rel (tag_id, article_id, created_time, modified_time)  VALUES (8, 2, 1508855785682, 1508855785682);

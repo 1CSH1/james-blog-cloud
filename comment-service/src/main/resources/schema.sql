@@ -8,6 +8,7 @@ CREATE TABLE comment
   status            INT NOT NULL ,
   article_id        BIGINT(20) NOT NULL ,
   p_id              BIGINT(20) NOT NULL ,
+  path              VARCHAR(1000) NOT NULL ,
   created_time      BIGINT(40) NOT NULL ,
   modified_time     BIGINT(40) NOT NULL
-);
+) CHARSET = UTF8;

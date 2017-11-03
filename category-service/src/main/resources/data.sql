@@ -1,0 +1,28 @@
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类1", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类2", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类3", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类4", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类5", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类6", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类7", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类8", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类9", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类10", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类11", 1508855785682, 1508855785682);
+INSERT INTO category (name, created_time, modified_time) VALUES ("分类12", 1508855785682, 1508855785682);
+
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (1, 1, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (1, 2, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (1, 3, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (1, 4, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (2, 5, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (2, 6, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (2, 7, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (3, 8, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (3, 9, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (4, 10, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (4, 11, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (5, 7, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (6, 6, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (7, 4, 1508855785682, 1508855785682);
+INSERT INTO article_category_rel (category_id, article_id, created_time, modified_time)  VALUES (8, 2, 1508855785682, 1508855785682);

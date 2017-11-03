@@ -1,13 +1,12 @@
 package org.jamesblog.article.model;
 
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by jamescsh on 10/14/17.
  */
+
+import javax.persistence.Id;
 
 /**
  * 文章
@@ -22,8 +21,6 @@ public class Article extends BaseModel {
     private int readNumber;
     private int commentNumber;
     private boolean isTop;
-
-
 
     public Article() {
     }
@@ -113,30 +110,6 @@ public class Article extends BaseModel {
         isTop = top;
     }
 
-//    public Set<Tag> getTags() {
-//        return tags;
-//    }
-//
-//    public void setTags(Set<Tag> tags) {
-//        this.tags = tags;
-//    }
-//
-//    public Set<Category> getCategories() {
-//        return categories;
-//    }
-//
-//    public void setCategories(Set<Category> categories) {
-//        this.categories = categories;
-//    }
-//
-//    public Set<Comment> getComments() {
-//        return comments;
-//    }
-//
-//    public void setComments(Set<Comment> comments) {
-//        this.comments = comments;
-//    }
-
     @Override
     public String toString() {
         return "Article{" +
@@ -148,9 +121,6 @@ public class Article extends BaseModel {
                 ", readNumber=" + readNumber +
                 ", commentNumber=" + commentNumber +
                 ", isTop=" + isTop +
-//                ", tags=" + tags +
-//                ", categories=" + categories +
-//                ", comments=" + comments +
                 "}" + super.toString();
     }
 }
