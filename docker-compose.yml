@@ -196,4 +196,16 @@ james-blog-web:
    - account-service
 
 
+# about-service
+about-service:
+  image: jamescsh/about-service
+  environment:
+    SPRING_PROFILES_ACTIVE: "docker"
+    DOCKER_IP: $DOCKER_IP
+  ports:
+   - 6029:6029
+  links:
+    - eureka-service
+    - config-service
+
 

@@ -43,6 +43,9 @@ zuul:
     user-service:
       path: /user/**
       serviceId: user-service
+    about-service:
+      path: /about/**
+      serviceId: about-service
 
 
 # Spring Security 配置

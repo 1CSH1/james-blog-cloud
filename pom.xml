@@ -34,6 +34,8 @@
     <module>category-service</module>
     <!-- 标签管理 -->
     <module>tag-service</module>
+    <!-- 关于我模块 -->
+    <module>about-service</module>
     <!-- 服务注册中心 -->
     <module>eureka-service</module>
     <!-- 配置中心 -->
