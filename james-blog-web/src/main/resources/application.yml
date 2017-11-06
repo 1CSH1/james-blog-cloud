@@ -8,10 +8,6 @@ spring:
 spring:
   profiles: dev
 
-
-  mvc:
-    dispatch-options-request: true
-
 # Eureka 配置
 eureka:
   instance:
@@ -47,6 +43,17 @@ zuul:
       path: /about/**
       serviceId: about-service
 
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
 
 # Spring Security 配置
 #security:

@@ -1,4 +1,4 @@
-package org.jamesblog.about.utils;
+package org.jamesblog.about.util;
 
 /**
  * @Author: James-CSH

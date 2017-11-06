@@ -13,7 +13,8 @@ spring:
     initialize: true
     # Druid 数据源配置
 #    type: com.alibaba.druid.pool.DruidDataSource
-
+  mvc:
+    dispatch-options-request: true
 # Eureka 注册中心
 eureka:
   instance:

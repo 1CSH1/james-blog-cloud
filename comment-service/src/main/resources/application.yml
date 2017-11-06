@@ -12,6 +12,9 @@ spring:
     password: root
     initialize: false
 
+  mvc:
+    dispatch-options-request: true
+
 # Eureka 注册中心
 eureka:
   instance:

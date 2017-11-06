@@ -1,5 +1,6 @@
 package org.jamesblog.comment.controller;
 
+import org.jamesblog.comment.bean.CommentAddBean;
 import org.jamesblog.comment.bean.CommentTreeBean;
 import org.jamesblog.comment.model.Comment;
 import org.jamesblog.comment.service.CommentService;
@@ -28,20 +29,17 @@ public class CommentController {
                 .orElseThrow(() -> new Exception("getCommentsByArticleId() method throw Exception"));
     }
 
-    @RequestMapping(value = "article/{id}/add", method = RequestMethod.GET)
-    public ResponseEntity addComment(@PathVariable(value = "id") long articleId,
-                                     @RequestParam(value = "pid") long pId,
-                                     @RequestParam(value = "name") String name,
-                                     @RequestParam(value = "email") String email,
-                                     @RequestParam(value = "content") String content) throws Exception {
+    @RequestMapping(value = "/article/{id}/add", method = RequestMethod.PUT)
+    public ResponseEntity addCommentPut(@PathVariable(value = "id") long articleId,
+                                        @RequestBody CommentAddBean commentAddBean) throws Exception {
         assert 0 != articleId;
-        assert null != name;
-        assert null != email;
-        assert null != content;
-        return Optional.ofNullable(commentService.addComment(articleId, pId, name, email, content))
+        assert null != commentAddBean.getName();
+        assert null != commentAddBean.getEmail();
+        assert null != commentAddBean.getContent();
+        return Optional.ofNullable(commentService.addComment(articleId, commentAddBean.getPid(),
+                commentAddBean.getName(), commentAddBean.getEmail(), commentAddBean.getContent()))
                 .map(noContent -> new ResponseEntity<>(HttpStatus.NO_CONTENT))
                 .orElseThrow(() -> new Exception("addComment() method throw Exception"));
     }
-
 
 }

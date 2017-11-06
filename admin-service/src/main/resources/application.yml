@@ -41,17 +41,17 @@ zuul:
       serviceId: user-service
 
 # Spring Security 配置
-security:
-  enable-csrf: false
-  oauth2:
-    resource:
-      user-info-uri: http://JamesBlog:5025/uaa/user
-    client:
-      access-token-uri: http://JamesBlog:5025/uaa/oauth/token
-      user-authorization-uri: http://JamesBlog:5025/uaa/oauth/authorize
-      client-id: jamesblog
-      client-secret: jamesblog
-  ignored: /assets/**
+#security:
+#  enable-csrf: false
+#  oauth2:
+#    resource:
+#      user-info-uri: http://JamesBlog:5025/uaa/user
+#    client:
+#      access-token-uri: http://JamesBlog:5025/uaa/oauth/token
+#      user-authorization-uri: http://JamesBlog:5025/uaa/oauth/authorize
+#      client-id: jamesblog
+#      client-secret: jamesblog
+#  ignored: /assets/**
 
 
 ############################ docker ##############################

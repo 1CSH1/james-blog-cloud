@@ -19,6 +19,7 @@ import java.util.Optional;
 /**
  * Created by jamescsh on 10/15/17.
  */
+@CrossOrigin
 @RestController
 public class ArticleController {
 
@@ -32,7 +33,7 @@ public class ArticleController {
      * @return              文章列表
      * @throws Exception
      */
-    @RequestMapping(path = "/articles", method = RequestMethod.GET)
+    @RequestMapping(path = "/articles", method = RequestMethod.POST)
     public ResponseEntity getArticles(@RequestParam(value = "pageNo", defaultValue = "0") Integer pageNo,
                                       @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize) throws Exception {
         Page<Article> page = PageHelper.startPage(pageNo, pageSize);
